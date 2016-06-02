@@ -13,6 +13,11 @@ public class ParallelThread {
     Thread worker2 = new Thread(b);
     Thread worker3 = new Thread(c);
 
+    worker1.setPriority(10);
+    worker2.setPriority(5);
+    worker3.setPriority(1);
+
+
     worker1.setName("worker 1");
     worker2.setName("worker 2");
     worker3.setName("worker 3");
@@ -35,10 +40,10 @@ class myRunnableValue implements Runnable {
 class PrintA implements Runnable {
   @Override
   public void run() {
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 100; i++) {
       System.out.print("A");
       try {
-        Thread.sleep(100);
+        Thread.sleep(10);
       } catch (InterruptedException e) {
         e.printStackTrace();
       }
@@ -49,10 +54,10 @@ class PrintA implements Runnable {
 class PrintB implements Runnable {
   @Override
   public void run() {
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 100; i++) {
       System.out.print("B");
       try {
-        Thread.sleep(100);
+        Thread.sleep(10);
       } catch (InterruptedException e) {
         e.printStackTrace();
       }
@@ -63,10 +68,10 @@ class PrintB implements Runnable {
 class PrintC implements Runnable {
   @Override
   public void run() {
-    for (int i = 0; i < 10; i++) {
-      System.out.print("C");
+    for (int i = 0; i < 100; i++) {
+      System.out.print("C ");
       try {
-        Thread.sleep(100);
+        Thread.sleep(10);
       } catch (InterruptedException e) {
         e.printStackTrace();
       }
